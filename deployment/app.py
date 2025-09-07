@@ -26,6 +26,9 @@ async def root():
     return {"message": "Welcome to the African Animal Classifier API!"}
 
 
+# List of class names (update this to match your dataset/class order)
+class_names = ['buffalo', 'elephant', 'lion', 'rhinoceros', 'zebra']
+
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
     image_bytes = await file.read()
@@ -34,4 +37,6 @@ async def predict(file: UploadFile = File(...)):
     with torch.no_grad():
         outputs = model(input_tensor)
         _, predicted = torch.max(outputs, 1)
-    return {"class": int(predicted.item())}
+    class_idx = int(predicted.item())
+    class_name = class_names[class_idx]
+    return {"class_index": class_idx, "class_name": class_name}
