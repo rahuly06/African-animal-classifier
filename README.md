@@ -1,4 +1,4 @@
-#African forest animal classifier
+<h1>African forest animal classifier</h1>
 
 Project implement the whole ML pipieline until deployment on local machine using FastAPI
 
