@@ -1,3 +1,5 @@
+#African forest animal classifier
+
 Project implement the whole ML pipieline until deployment on local machine using FastAPI
 
 The images used for the training were scrapped from Google followed by some preprocesssing.
